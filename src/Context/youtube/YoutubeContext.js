@@ -11,7 +11,7 @@ export const YoutubeProvider = ({ children }) => {
     loading: false,
     selected: false,
   };
-
+  //Our state and dispatch that will be able to give the current state and dispatch from the reducer
   const [state, dispatch] = useReducer(youtubeReducer, initialState);
 
   return (

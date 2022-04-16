@@ -6,17 +6,17 @@ const youtube = axios.create({
   baseURL: YOUTUBE_URL,
 });
 
-// search results
+// search channels
 export const searchChannels = async (text) => {
   const channelList = await (
     await youtube.get(
       `/search?part=snippet&q=${text}&maxResults=25&type=channel&key=${YOUTUBE_TOKEN}`
     )
   ).data.items;
-  console.log(channelList);
   return channelList;
 };
 
+//Search the channel by username and return the channel id
 const searchChannelIdByUsername = async (username) => {
   const channel = await (
     await youtube.get(
@@ -26,7 +26,7 @@ const searchChannelIdByUsername = async (username) => {
   return channel.id.channelId;
 };
 
-// get user and repos
+// get channel and videos by username
 export const getChannelAndVideos = async (username) => {
   const channelId = await searchChannelIdByUsername(username);
   const [channel, videos] = await Promise.all([
@@ -37,7 +37,6 @@ export const getChannelAndVideos = async (username) => {
       `/search?channelId=${channelId}&part=snippet,id&order=date&maxResults=20&key=${YOUTUBE_TOKEN}`
     ),
   ]);
-  console.log(channel);
   return {
     channel: channel.data.items[0],
     videos: videos.data.items,

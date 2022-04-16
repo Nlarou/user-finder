@@ -23,6 +23,8 @@ export default function UserSearch() {
   const handleChange = (e) => {
     setText(e.target.value);
   };
+
+  //Get the channel or the user from the search
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(text);
@@ -41,6 +43,8 @@ export default function UserSearch() {
       setText("");
     }
   };
+
+  //Change the button selection to the github button or the youtube button
   const changeSelection = (e) => {
     e.preventDefault();
     if (githubSelected && !youtubeSelected) {
