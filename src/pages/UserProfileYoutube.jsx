@@ -6,8 +6,8 @@ import Spinner from "../components/layout/Spinner";
 import { getChannelAndVideos } from "../Context/youtube/YoutubeActions";
 import youtubeContext from "../Context/youtube/YoutubeContext";
 import VideosList from "../components/videos/VideosList";
-//AIzaSyA4AE2KkCMfwhF0n4Y5O2djbihRuKUzhQc
 
+//List of country name with their code
 const countries = [
   { name: "Afghanistan", code: "AF" },
   { name: "Åland Islands", code: "AX" },
@@ -262,7 +262,6 @@ function UserProfileYoutube() {
     dispatch({ type: "SET_LOADING" });
     const getUserData = async () => {
       const userData = await getChannelAndVideos(params.login);
-      console.log(userData);
       dispatch({ type: "GET_CHANNEL_AND_VIDEOS", payload: userData });
     };
     getUserData();
