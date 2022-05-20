@@ -1,0 +1,5 @@
+REACT_APP_GITHUB_API = "https://api.github.com"
+REACT_APP_GITHUB_ACCESS_TOKEN = Your Githun API TOKEN
+
+REACT_APP_YOUTUBE_API = "https://www.googleapis.com/youtube/v3"
+REACT_APP_YOUTUBE_ACCESS_TOKEN = Your Youtube API TOKEN
